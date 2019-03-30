@@ -4,10 +4,10 @@ LDFLAGS  =
 OBJFILES = mytop.o
 TARGET   = mytop
 
-all: $(TARGET)
 
-$(TARGET) : $(OBJFILES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
+compile:
+	$(CC) mytop.c -o mytop
+	sudo ./mytop
 
 clean:
 	rm -f $(OBJFILES) $(TARGET) *~

@@ -4,6 +4,34 @@ Implement a simple [IRC](https://en.wikipedia.org/wiki/Internet_Relay_Chat) serv
 
 It will be based on the Go Programming Language book's chapter 8th examples. [Chat Server](https://github.com/adonovan/gopl.io/tree/master/ch8/chat) and [netcat client](https://github.com/adonovan/gopl.io/tree/master/ch8/netcat3). Below you can see the specific requirements for this.
 
+
+Compile
+----------------
+
+**SERVER**
+`````
+go run client.go
+`````
+
+**CLIENT**
+in a different terminal
+`````
+go run server
+`````
+
+**MAKEFILE?**
+Do it in differente terminals, for client
+`````
+make client
+`````
+
+For server
+`````
+make sever
+`````
+
+
+
 Requirements
 ------------
 - The program must be implemented in Golang programming language.

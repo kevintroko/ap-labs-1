@@ -7,18 +7,33 @@
 package main
 
 import (
+	"flag"
 	"io"
 	"log"
 	"net"
 	"os"
 )
 
+var (
+	user    string
+	address string
+)
+
+func init() {
+	flag.StringVar(&user, "user", "user", "flag for setting user")
+	flag.StringVar(&address, "server", "localhost:8080", "flag for setting address")
+}
+
 //!+
 func main() {
-	conn, err := net.Dial("tcp", "localhost:8000")
+	flag.Parse()
+
+	conn, err := net.Dial("tcp", address)
 	if err != nil {
 		log.Fatal(err)
 	}
+	conn.Write([]byte(string(user)))
+
 	done := make(chan struct{})
 	go func() {
 		io.Copy(os.Stdout, conn) // NOTE: ignoring errors
